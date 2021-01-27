@@ -21,3 +21,4 @@ after_success:
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" docker.io
   - docker push $YOUR_DOCKER_HUB/udagram-api
   - docker push $YOUR_DOCKER_HUB/udagram-frontend
+  
