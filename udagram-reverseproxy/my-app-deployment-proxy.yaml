@@ -16,7 +16,7 @@ spec:
         service: reverse-proxy
     spec:
       containers:
-      - image: paulovsm/udagram-reverse-proxy
+      - image: paulovsm/udagram-reverseproxy
         name: reverse-proxy
         imagePullPolicy: Always
         resources:
