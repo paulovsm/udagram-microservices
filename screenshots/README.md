@@ -32,6 +32,9 @@ kubectl describe hpa
 ```
 ![alt text](./K8s-DescribeHPA.png)
 
+HPA responding under Load Generator load
+![alt text](./K8s-DescribeHPA-1.png)
+
 * To verify that you have set up logging with a backend application
 
 Feed API Service Logs
