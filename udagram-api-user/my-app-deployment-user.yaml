@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-user
+  labels:
+    app: api-user
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-user
+  template:
+    metadata:
+      labels:
+        app: api-user
+    spec:
+      containers:
+      - name: udagram-api-user
+        image: paulovsm/udagram-api-user
+        imagePullPolicy: "Always"
+        ports:
+          - containerPort: 8080    
+        env:
+        - name: POSTGRES_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: config-map
+              key: POSTGRES_HOST
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            configMapKeyRef:
+              name: config-map
+              key: POSTGRES_USERNAME
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: config-map
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: config-map
+              key: POSTGRES_DB
+        - name: JWT_SECRET
+          valueFrom:
+            configMapKeyRef:
+              name: config-map
+              key: JWT_SECRET
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: config-map
+              key: AWS_REGION
+        - name: AWS_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              name: config-map
+              key: AWS_BUCKET
+        - name: URL
+          valueFrom:
+            configMapKeyRef:
+              name: config-map
+              key: URL
